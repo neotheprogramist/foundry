@@ -332,6 +332,10 @@ pub enum CastSubcommand {
     #[command(visible_aliases = &["--to-dec", "td", "2d"])]
     ToDec(ToBaseArgs),
 
+    /// Prints 'Hello'
+    #[command(visible_aliases = &["-hell"])]
+    PrintHello(RpcOpts),
+
     /// Converts a number of one base to another
     #[command(
         visible_aliases = &["--to-base",

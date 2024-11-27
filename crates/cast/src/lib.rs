@@ -243,6 +243,12 @@ where
         Ok(self.provider.get_balance(who).block_id(block.unwrap_or_default()).await?)
     }
 
+    pub async fn print_hello(&self) -> Result<()> {
+        println!("2");
+        self.provider.hello();
+        Ok(())
+    }
+
     /// Sends a transaction to the specified address
     ///
     /// # Example

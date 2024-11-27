@@ -187,6 +187,7 @@ impl EthApi {
             EthRequest::EthBlobBaseFee(_) => self.blob_base_fee().to_rpc_result(),
             EthRequest::EthAccounts(_) => self.accounts().to_rpc_result(),
             EthRequest::EthBlockNumber(_) => self.block_number().to_rpc_result(),
+            EthRequest::EthHello(_) => self.hello().await.to_rpc_result(),
             EthRequest::EthGetStorageAt(addr, slot, block) => {
                 self.storage_at(addr, slot, block).await.to_rpc_result()
             }
@@ -688,6 +689,12 @@ impl EthApi {
         }
 
         self.backend.get_balance(address, Some(block_request)).await
+    }
+
+    pub async fn hello(&self) -> Result<()> {
+        node_info!("hello");
+        println!("Hello");
+        Ok(())
     }
 
     /// Returns the ethereum account.

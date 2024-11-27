@@ -84,6 +84,9 @@ pub enum EthRequest {
     #[cfg_attr(feature = "serde", serde(rename = "eth_blockNumber", with = "empty_params"))]
     EthBlockNumber(()),
 
+    #[cfg_attr(feature = "serde", serde(rename = "hello", with = "empty_params"))]
+    EthHello(()),
+
     #[cfg_attr(feature = "serde", serde(rename = "eth_getBalance"))]
     EthGetBalance(Address, Option<BlockId>),
 
