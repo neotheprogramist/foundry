@@ -265,12 +265,6 @@ async fn main_args(args: CastArgs) -> Result<()> {
                 }
             }
         }
-        CastSubcommand::PrintHello(rpc) => {
-            let config = Config::from(&rpc);
-            let provider = utils::get_provider(&config)?;
-            println!("1");
-            Cast::new(&provider).print_hello().await.unwrap_or_default()
-        }
         CastSubcommand::BaseFee { block, rpc } => {
             let config = Config::from(&rpc);
             let provider = utils::get_provider(&config)?;
